@@ -35,7 +35,6 @@ graph TD
 LLMs are trained on vast amounts of text data. The first step is to collect and preprocess this data.
 
 ### Code:
-
 ``` python
 import nltk
 from nltk.tokenize import word_tokenize
@@ -53,7 +52,7 @@ tokenized_data = [word_tokenize(sentence.lower()) for sentence in text_data]
 print(tokenized_data)
 ```
 
-Output:
+### Output:
 ``` css
 [['the', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog', '.'],
  ['language', 'models', 'are', 'trained', 'on', 'large', 'datasets', '.'],
@@ -62,6 +61,7 @@ Output:
 
 ## Step 2: Vocabulary Creation
 Create a vocabulary of unique words in the dataset.
+### Code:
 ``` python
 # Create vocabulary
 vocab = set(word for sentence in tokenized_data for word in sentence)
@@ -71,13 +71,14 @@ idx_to_word = {idx: word for word, idx in word_to_idx.items()}
 print(word_to_idx)
 ```
 
-Output:
+### Output:
 ``` css
 {'the': 0, 'quick': 1, 'brown': 2, 'fox': 3, 'jumps': 4, 'over': 5, 'lazy': 6, 'dog': 7, '.': 8, 'language': 9, 'models': 10, 'are': 11, 'trained': 12, 'on': 13, 'large': 14, 'datasets': 15, 'python': 16, 'is': 17, 'a': 18, 'popular': 19, 'programming': 20}
 ```
 
 ## Step 3: Data Encoding
 Convert the tokenized text into numerical sequences.
+### Code:
 ``` python
 import numpy as np
 
@@ -87,7 +88,7 @@ encoded_data = [[word_to_idx[word] for word in sentence] for sentence in tokeniz
 print(encoded_data)
 ```
 
-Output:
+### Output:
 ``` css
 [[0, 1, 2, 3, 4, 5, 0, 6, 7, 8],
  [9, 10, 11, 12, 13, 14, 15, 8],
@@ -96,8 +97,9 @@ Output:
 
 
 ## Step 4: Model Architecture
-### Code:
+
 Define the model architecture. Here's a simple example using a basic recurrent neural network (RNN).
+### Code:
 ``` python
 import torch
 import torch.nn as nn
@@ -181,7 +183,7 @@ Epoch 20, Loss: 2.1987
 
 ## Step 7: Text Generation
 Use the trained model to generate text.
-
+### Code:
 ``` python
 def generate_text(model, start_sequence, max_length=20):
     model.eval()
