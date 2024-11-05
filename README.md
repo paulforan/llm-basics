@@ -9,22 +9,22 @@ I'll break down the basics of Large Language Models (LLMs) into steps and provid
 ## Arch Overview
 ``` mermaid
 graph TD
-    A[Start] --> B[Step 1: Data Collection and Preprocessing]
-    B --> C[Step 2: Vocabulary Creation]
-    C --> D[Step 3: Data Encoding]
-    D --> E[Step 4: Model Architecture]
-    E --> F[Step 5: Training Data Preparation]
-    F --> G[Step 6: Training Loop]
-    G --> H[Step 7: Text Generation]
-    H --> I[End]
+    A([Start]) --> B
+    B[Data Preprocessing]:::blue --> C
+    C[Model Creation]:::green --> D
+    D[Training]:::orange --> E
+    E[Text Generation]:::purple --> F([End])
 
-    B --> B1[Tokenize text data]
-    C --> C1[Create word-to-index mapping]
-    D --> D1[Convert tokens to numerical sequences]
-    E --> E1[Define neural network structure]
-    F --> F1[Create input-output pairs]
-    G --> G1[Train model using backpropagation]
-    H --> H1[Use trained model to generate text]
+    B --> |Tokenize & Encode| B1([Prepare Data]):::blue
+    C --> |Define Architecture| C1([Build Model]):::green
+    D --> |Backpropagation| D1([Optimize]):::orange
+    E --> |Use Model| E1([Generate]):::purple
+
+    classDef blue fill:#2196F3,stroke:#1565C0,color:white;
+    classDef green fill:#4CAF50,stroke:#2E7D32,color:white;
+    classDef orange fill:#FF9800,stroke:#EF6C00,color:white;
+    classDef purple fill:#9C27B0,stroke:#6A1B9A,color:white;
+    classDef default fill:#ECEFF1,stroke:#90A4AE,color:#37474F;
 ```
 
 ## Step 1: Data Collection and Preprocessing
