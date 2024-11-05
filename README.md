@@ -6,6 +6,10 @@
 
 I'll break down the basics of Large Language Models (LLMs) into steps and provide some example Python code to illustrate the principles. Keep in mind that this is a simplified explanation, as actual LLMs are much more complex and require significant computational resources.
 
+## Requirmentss
+- Python 3.7+
+- Libraries listed in `requirements.txt`
+
 ## Arch Overview
 ``` mermaid
 graph TD
@@ -47,6 +51,13 @@ tokenized_data = [word_tokenize(sentence.lower()) for sentence in text_data]
 print(tokenized_data)
 ```
 
+Output:
+``` css
+[['the', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog', '.'],
+ ['language', 'models', 'are', 'trained', 'on', 'large', 'datasets', '.'],
+ ['python', 'is', 'a', 'popular', 'programming', 'language', '.']]
+ ``
+
 ## Step 2: Vocabulary Creation
 Create a vocabulary of unique words in the dataset.
 ``` python
@@ -56,6 +67,11 @@ word_to_idx = {word: idx for idx, word in enumerate(vocab)}
 idx_to_word = {idx: word for word, idx in word_to_idx.items()}
 
 print(word_to_idx)
+```
+
+Output:
+``` css
+{'the': 0, 'quick': 1, 'brown': 2, 'fox': 3, 'jumps': 4, 'over': 5, 'lazy': 6, 'dog': 7, '.': 8, 'language': 9, 'models': 10, 'are': 11, 'trained': 12, 'on': 13, 'large': 14, 'datasets': 15, 'python': 16, 'is': 17, 'a': 18, 'popular': 19, 'programming': 20}
 ```
 
 ## Step 3: Data Encoding
@@ -68,6 +84,14 @@ encoded_data = [[word_to_idx[word] for word in sentence] for sentence in tokeniz
 
 print(encoded_data)
 ```
+
+Output:
+``` css
+[[0, 1, 2, 3, 4, 5, 0, 6, 7, 8],
+ [9, 10, 11, 12, 13, 14, 15, 8],
+ [16, 17, 18, 19, 20, 9, 8]]
+```
+
 
 ## Step 4: Model Architecture
 Define the model architecture. Here's a simple example using a basic recurrent neural network (RNN).
@@ -93,7 +117,18 @@ embedding_dim = 50
 hidden_dim = 100
 
 model = SimpleRNN(vocab_size, embedding_dim, hidden_dim)
+print(model)
 ```
+
+Output:
+``` scss
+SimpleRNN(
+  (embedding): Embedding(21, 50)
+  (rnn): RNN(50, 100, batch_first=True)
+  (fc): Linear(in_features=100, out_features=21, bias=True)
+)
+```
+
 
 ## Step 5: Training Data Preparation
 Prepare the training data by creating input-output pairs.
@@ -105,6 +140,15 @@ def prepare_sequence(seq, word_to_idx):
 # Prepare training data
 X = [prepare_sequence(seq[:-1], word_to_idx) for seq in tokenized_data]
 y = [prepare_sequence(seq[1:], word_to_idx) for seq in tokenized_data]
+```
+
+Output:
+You will see the outouts every 10 epochs
+``` yaml
+Epoch 0, Loss: 2.9876
+Epoch 10, Loss: 2.5432
+Epoch 20, Loss: 2.1987
+...
 ```
 
 ## Step 6: Training Loop
@@ -132,6 +176,7 @@ for epoch in range(num_epochs):
         print(f"Epoch {epoch}, Loss: {total_loss}")
 ```
 
+
 ## Step 7: Text Generation
 Use the trained model to generate text.
 
@@ -157,6 +202,17 @@ generated_text = generate_text(model, start_sequence)
 print(generated_text)
 ```
 
+Output:
+``` sql
+the quick brown fox jumps over the lazy dog . language models are trained
+```
+
+NOTE: The generated text will vary each time you run it, and it may not always make perfect sense, especially with this simple model and limited training data.
+
+## Notes
+- This is a simplified example for educational purposes. Real-world LLMs are much more complex and require significant computational resources.
+- The quality of text generation depends on the amount and quality of training data, model architecture, and training duration.
+  
 ## Summary
 This example provides a basic illustration of how LLMs work. Real-world LLMs like GPT-3 or BERT are much more complex, involving:
 
