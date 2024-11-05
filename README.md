@@ -34,6 +34,8 @@ graph TD
 ## Step 1: Data Collection and Preprocessing
 LLMs are trained on vast amounts of text data. The first step is to collect and preprocess this data.
 
+### Code:
+
 ``` python
 import nltk
 from nltk.tokenize import word_tokenize
