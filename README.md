@@ -56,7 +56,7 @@ Output:
 [['the', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog', '.'],
  ['language', 'models', 'are', 'trained', 'on', 'large', 'datasets', '.'],
  ['python', 'is', 'a', 'popular', 'programming', 'language', '.']]
- ``
+ ```
 
 ## Step 2: Vocabulary Creation
 Create a vocabulary of unique words in the dataset.
