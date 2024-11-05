@@ -94,6 +94,7 @@ Output:
 
 
 ## Step 4: Model Architecture
+### Code:
 Define the model architecture. Here's a simple example using a basic recurrent neural network (RNN).
 ``` python
 import torch
@@ -120,7 +121,7 @@ model = SimpleRNN(vocab_size, embedding_dim, hidden_dim)
 print(model)
 ```
 
-Output:
+### Output:
 ``` python
 SimpleRNN(
   (embedding): Embedding(21, 50)
@@ -132,7 +133,7 @@ SimpleRNN(
 
 ## Step 5: Training Data Preparation
 Prepare the training data by creating input-output pairs.
-
+### Code:
 ``` python
 def prepare_sequence(seq, word_to_idx):
     return torch.tensor([word_to_idx[w] for w in seq], dtype=torch.long)
@@ -142,18 +143,10 @@ X = [prepare_sequence(seq[:-1], word_to_idx) for seq in tokenized_data]
 y = [prepare_sequence(seq[1:], word_to_idx) for seq in tokenized_data]
 ```
 
-Output:
-You will see the outouts every 10 epochs
-``` yaml
-Epoch 0, Loss: 2.9876
-Epoch 10, Loss: 2.5432
-Epoch 20, Loss: 2.1987
-...
-```
 
 ## Step 6: Training Loop
 Train the model using the prepared data.
-
+### Code:
 ``` python
 import torch.optim as optim
 
@@ -175,7 +168,14 @@ for epoch in range(num_epochs):
     if epoch % 10 == 0:
         print(f"Epoch {epoch}, Loss: {total_loss}")
 ```
-
+### Output:
+You will see the outouts every 10 epochs
+``` yaml
+Epoch 0, Loss: 2.9876
+Epoch 10, Loss: 2.5432
+Epoch 20, Loss: 2.1987
+...
+```
 
 ## Step 7: Text Generation
 Use the trained model to generate text.
@@ -202,7 +202,7 @@ generated_text = generate_text(model, start_sequence)
 print(generated_text)
 ```
 
-Output:
+### Output:
 ``` sql
 the quick brown fox jumps over the lazy dog . language models are trained
 ```
