@@ -2,7 +2,7 @@
 ## Overview
 - Author: Paul Foran
 - Date: 5th Nov 2024
-- Purpose: Showcasing how LLMs are Generated, leaveragin basic python examples
+- Purpose: Showcasing how LLMs are Generated, with some basic python examples
 
 I'll break down the basics of Large Language Models (LLMs) into steps and provide some example Python code to illustrate the principles. Keep in mind that this is a simplified explanation, as actual LLMs are much more complex and require significant computational resources.
 
