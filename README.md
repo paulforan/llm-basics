@@ -121,7 +121,7 @@ print(model)
 ```
 
 Output:
-``` scss
+``` python
 SimpleRNN(
   (embedding): Embedding(21, 50)
   (rnn): RNN(50, 100, batch_first=True)
