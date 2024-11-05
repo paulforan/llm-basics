@@ -1,6 +1,31 @@
 # llm-basics
 ## Overview
-CI'll break down the basics of Large Language Models (LLMs) into steps and provide some example Python code to illustrate the principles. Keep in mind that this is a simplified explanation, as actual LLMs are much more complex and require significant computational resources.
+Author: Paul Foran
+Date: 5th Nov 2024
+Purpose: Showcasing how LLMs are Generated, leaveragin basic python examples
+
+I'll break down the basics of Large Language Models (LLMs) into steps and provide some example Python code to illustrate the principles. Keep in mind that this is a simplified explanation, as actual LLMs are much more complex and require significant computational resources.
+
+## Arch Overview
+``` mermaid
+graph TD
+    A[Start] --> B[Step 1: Data Collection and Preprocessing]
+    B --> C[Step 2: Vocabulary Creation]
+    C --> D[Step 3: Data Encoding]
+    D --> E[Step 4: Model Architecture]
+    E --> F[Step 5: Training Data Preparation]
+    F --> G[Step 6: Training Loop]
+    G --> H[Step 7: Text Generation]
+    H --> I[End]
+
+    B --> B1[Tokenize text data]
+    C --> C1[Create word-to-index mapping]
+    D --> D1[Convert tokens to numerical sequences]
+    E --> E1[Define neural network structure]
+    F --> F1[Create input-output pairs]
+    G --> G1[Train model using backpropagation]
+    H --> H1[Use trained model to generate text]
+```
 
 ## Step 1: Data Collection and Preprocessing
 LLMs are trained on vast amounts of text data. The first step is to collect and preprocess this data.
@@ -82,7 +107,7 @@ X = [prepare_sequence(seq[:-1], word_to_idx) for seq in tokenized_data]
 y = [prepare_sequence(seq[1:], word_to_idx) for seq in tokenized_data]
 ```
 
-## Step 6: raining Loop
+## Step 6: Training Loop
 Train the model using the prepared data.
 
 ``` python
